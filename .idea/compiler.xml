@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="OOP_Solid" />
+        <module name="streams-lambda" />
       </profile>
     </annotationProcessing>
   </component>
