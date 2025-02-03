@@ -7,11 +7,10 @@ import org.hibernate.proxy.HibernateProxy;
 import java.util.Objects;
 
 @Entity
-@Getter
 @Setter
 @ToString
-@RequiredArgsConstructor
 @NoArgsConstructor
+@Getter
 @AllArgsConstructor
 @Table(name = "jobs")
 public class Job {
