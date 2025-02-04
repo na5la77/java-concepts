@@ -4,11 +4,12 @@ import org.example.jobportal.entities.Job;
 import org.example.jobportal.models.JobDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.mapstruct.NullValueCheckStrategy;
 
 @Mapper(componentModel = "spring")
 public interface JobMapper {
 
-    @Mapping(source = "jobTitle", target = "title")
+    @Mapping(source = "jobTitle", target = "title",qualifiedByName = "mapTitle", nullValueCheckStrategy=NullValueCheckStrategy.ALWAYS)
     @Mapping(source = "companyName", target = "company")
     @Mapping(source = "jobDescription", target = "description")
     Job jobDtoToJob(JobDto jobDto);
@@ -17,5 +18,9 @@ public interface JobMapper {
     @Mapping(source = "company", target = "companyName")
     @Mapping(source = "description", target = "jobDescription")
     JobDto jobToJobDto(Job job);
+//    @Named("mapTitle")
+//    default String mapTitle(String jobTitle){
+//
+//    }
 }
 
