@@ -39,4 +39,9 @@ public class JobApplication {
     public final int hashCode() {
         return this instanceof HibernateProxy ? ((HibernateProxy) this).getHibernateLazyInitializer().getPersistentClass().hashCode() : getClass().hashCode();
     }
+
+    public JobApplication(User user, Job job) {
+        this.user = user;
+        this.job = job;
+    }
 }

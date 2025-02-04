@@ -1,5 +1,6 @@
 package org.example.jobportal.services;
 
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.example.jobportal.entities.Job;
 import org.example.jobportal.entities.JobApplication;
@@ -20,20 +21,23 @@ public class JobApplicationService {
     private final UserRepository userRepository;
     private final JobRepository jobRepository;
 
-    public List<JobApplicationProjection> getAllJobApplications() {
-        return jobApplicationRepository.findAllProjectedBy();
-    }
-
     public JobApplication createJobApplication(JobApplicationDto dto) {
-        JobApplication jobApplication = new JobApplication();
         User user = userRepository.findById(dto.getUserId())
-                .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new EntityNotFoundException("User not found"));
         Job job = jobRepository.findById(dto.getJobId())
-                .orElseThrow(() -> new RuntimeException("Job not found"));
+                .orElseThrow(() -> new EntityNotFoundException("Job not found"));
 
-        jobApplication.setUser(user);
-        jobApplication.setJob(job);
+        JobApplication jobApplication = new JobApplication(user, job);
         return jobApplicationRepository.save(jobApplication);
     }
+
+    public JobApplicationProjection getJobApplicationProjection(Long id) {
+        return jobApplicationRepository.findProjectedById(id);
+    }
+
+    public List<JobApplicationDto> getAllJobApplications() {
+        return jobApplicationRepository.findAllJobApplications();
+    }
+
 
 }
