@@ -10,9 +10,9 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface JobApplicationRepository extends JpaRepository<JobApplication, Long> {
-    @Query("SELECT j.id AS id, j.user.id AS userId, j.job.id AS jobId FROM JobApplication j WHERE j.id = :id")
+    @Query("SELECT j.id AS id, j.user.id AS userId, j.job.id AS jobId FROM job_applications j WHERE j.id = :id")
     JobApplicationProjection findProjectedById(@Param("id") Long id);
 
-    @Query("SELECT new org.example.jobportal.models.JobApplicationDto(j.id, j.user.id, j.job.id) FROM JobApplication j")
+    @Query("SELECT new org.example.jobportal.models.JobApplicationDto(j.id, j.user.id, j.job.id) FROM job_applications j")
     List<JobApplicationDto> findAllJobApplications();
 }

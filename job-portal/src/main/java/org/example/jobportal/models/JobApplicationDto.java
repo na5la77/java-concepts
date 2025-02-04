@@ -1,6 +1,6 @@
 package org.example.jobportal.models;
 
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,11 +10,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class JobApplicationDto {
     private Long id;
-    @NotNull(message = "UserID cannot be empty")
+    @NotBlank(message = "UserID cannot be empty")
     private Long userId;
-    @NotNull(message = "JobID cannot be empty")
+    @NotBlank(message = "JobID cannot be empty")
     private Long jobId;
-
-
 }
 

@@ -3,13 +3,11 @@ package org.example.jobportal.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Entity
-@ToString
+@Entity(name = "jobs")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
-@RequiredArgsConstructor
 @Table(name = "jobs")
 public class Job {
     @Id
@@ -20,8 +18,8 @@ public class Job {
     private String company;
     private String description;
 
-//    @ManyToOne
-//    @JoinColumn(name = "created_by", nullable = false)
-//    private User createdBy;
+    @ManyToOne
+    @JoinColumn(name = "created_by", nullable = false)
+    private User createdBy;
 }
 

@@ -15,8 +15,6 @@ import java.util.stream.Collectors;
 public class JobService {
     private final JobRepository jobRepository;
     private final JobMapper jobMapper;
-
-
     public List<JobDto> getAllJobs(String company) {
         List<Job> jobs = (company != null) ?
                 jobRepository.findByCompanyIgnoreCase(company) :
