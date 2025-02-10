@@ -1,0 +1,56 @@
+### Find All Content
+GET http://localhost:8080/api/content
+
+
+
+### Get Content By ID
+@id = 1
+GET http://localhost:8080/api/content/{{id}}
+
+
+
+### Create New Content
+POST http://localhost:8080/api/content
+Content-Type: application/json
+
+{
+  "id": 3,
+  "title": "My Second Blog",
+  "desc": "My second blogpost",
+  "status": "IDEA",
+  "contentType": "ARTICLE",
+  "dateCreated": "2025-02-06T01:23:09.4926225",
+  "dateUpdated": null,
+  "url": ""
+}
+
+
+###Update by ID
+@update_id = 1
+PUT http://localhost:8080/api/content/{{update_id}}
+Content-Type: application/json
+
+{
+"title": "MY SECOND",
+"id": {{update_id}},
+"desc": "My second blogpost",
+"status": "IDEA",
+"contentType": "ARTICLE",
+"dateCreated": "2025-02-06T01:23:09.4926225",
+"dateUpdated": "2025-02-06T01:23:09.4926225",
+"url": ""
+}
+
+### Delete Content By ID
+@delete_id = 1
+DELETE http://localhost:8080/api/content/{{delete_id}}
+
+
+###Get by title contains (case sensitive)
+@keyword = GPT
+GET http://localhost:8080/api/content/filter/{{keyword}}
+
+
+###Get by status
+@status = IDEA
+GET http://localhost:8080/api/content/filter/status/{{status}}
