@@ -1,0 +1,13 @@
+@baseUrl=http://localhost:8080/jobs
+### Get All Jobs
+GET {{baseUrl}}
+
+### Create Job
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "jobTitle":"Senior Project Manger",
+  "companyName":"Deloitte",
+  "jobDescription":"Project manager needed with 3 years of experience"
+}

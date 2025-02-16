@@ -1,0 +1,15 @@
+
+@baseUrl=http://localhost:8080/job-applications
+
+### Get All Applications
+GET {{baseUrl}}
+
+### Create Applications
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "userId":"1",
+  "jobId":"2"
+}
+###

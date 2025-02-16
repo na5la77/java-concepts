@@ -1,0 +1,15 @@
+
+@baseUrl=http://localhost:8080/users
+
+### Get All Users
+GET {{baseUrl}}
+
+### Create User
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "username":"Shadi",
+  "email": "test@test.com",
+  "password": "1234"
+}
